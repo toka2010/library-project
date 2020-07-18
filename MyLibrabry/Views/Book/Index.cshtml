@@ -1,0 +1,696 @@
+﻿@model IEnumerable<MyLibrabry.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMP.cshtml";
+}
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /*body {
+      font-family: Arial, Helvetica, sans-serif;
+    }*/
+
+    /* Float four columns side by side */
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+    }
+
+    /* Remove extra left and right margins, due to padding */
+    .row {
+        margin: 0 -5px;
+    }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    /* Responsive columns */
+    @@media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+
+    /* Style the counter cards */
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+    }
+    /* entire container, keeps perspective */
+    .flip-container {
+        perspective: 1000px;
+    }
+        /* flip the pane when hovered */
+        .flip-container:hover .flipper, .flip-container.hover .flipper {
+            transform: rotateY(180deg);
+        }
+
+    .flip-container, .front, .back {
+        width: 320px;
+        height: 480px;
+    }
+
+    /* flip speed goes here */
+    .flipper {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+
+    /* hide back of pane during swap */
+    .front, .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    /* front pane, placed above back */
+    .front {
+        z-index: 2;
+        /* for firefox 31 */
+        transform: rotateY(0deg);
+    }
+
+    /* back, initially hidden pane */
+    .back {
+        transform: rotateY(180deg);
+    }
+
+    .img {
+        width: 250px;
+        height: 400px;
+    }
+
+    .containerr {
+        position: relative;
+        width: 250px;
+        height: 400px;
+    }
+
+    /* Bottom right text */
+    .text-block {
+        position: absolute;
+        top: 20px;
+        /*right: 20px;*/
+        background-color: transparent;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-top: 50px;
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    h4 {
+        font-family: Algerian;
+        font-size: 30px;
+        text-align: center;
+        color: black;
+    }
+
+    hr {
+        border: none;
+        height: 2px;
+        /* Set the hr color */
+        /* old IE */
+        /* Modern Browsers */
+        color: #f1f1f1;
+        background-color: #f1f1f1;
+    }
+
+    h1 {
+        font-family: 'Edwardian Script ITC';
+        font-weight: bold;
+    }
+</style>
+
+<h1>Most Reading</h1>
+<hr>
+<div class="row">
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+                    <img class="img" src="~/LayoutMP/bookimg/harry potter .jpg" />
+
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+
+                            <div class="text-block">
+                                <h4>Harry Potter and the Sorcerer's Stone</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="column">
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+                    <img class="img" src="~/LayoutMP/bookimg/magic bites.jpg" />
+
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>Divergent</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+
+                    <img class="img" src="~/LayoutMP/bookimg/me before you.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>Me Before Ypu</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+                    <img class="img" src="~/LayoutMP/bookimg/this hurt.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>This Is Going to Hurt</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<h1>Recently Arrived</h1>
+<hr />
+
+<div class="row">
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+                    <img class="img" src="~/LayoutMP/bookimg/cosmos.jpg" />
+                </div>
+                <div class="back">
+                    <!-- back content -->
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>COSMOS</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+
+                    <img class="img" src="~/LayoutMP/bookimg/killer mind.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>A Killer's Mind</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+
+                    <img class="img" src="~/LayoutMP/bookimg/1776.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>1776</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<h1>All Books</h1>
+<hr />
+
+
+<div class="row">
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+                    <img class="img" src="~/LayoutMP/bookimg/england.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>England, My England</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+
+                    <img class="img" src="~/LayoutMP/bookimg/master key.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>The Master Key to Riches</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+
+                    <img class="img" src="~/LayoutMP/bookimg/getting things done.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>Getting Things Done</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+                    <img class="img" src="~/LayoutMP/bookimg/harry potter .jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>Harry Potter and the Sorcerer's Stone</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+                    <img class="img" src="~/LayoutMP/bookimg/killer mind.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>A Killer's Mind</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+
+                    <img class="img" src="~/LayoutMP/bookimg/me before you.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>Me Before You</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+
+                    <img class="img" src="~/LayoutMP/bookimg/divergent.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>Divergent</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star " style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+                    <img class="img" src="~/LayoutMP/bookimg/1776.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>1776</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+                    <img class="img" src="~/LayoutMP/bookimg/this hurt.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>this is going to hurt</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="column">
+
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+
+
+                    <img class="img" src="~/LayoutMP/bookimg/cosmos.jpg" />
+                </div>
+                <div class="back">
+                    <div class="containerr">
+                        <a href="http://localhost:50608/Book/BorrowBook">
+                            <img class="img" src="~/LayoutMP/back/668710af715ee34130943e1e72f96fda.jpg" />
+                            <div class="text-block">
+                                <h4>COSMOS</h4>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star checked" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+                                <span class="fa fa-star" style="font-size:36px;"></span>
+
+
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+

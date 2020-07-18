@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+}
+
+<h2>Index</h2>
+
+@section scripts
+{
+
+
+    <img id="blah" src="~/LayoutProfile/images/Alaa.jpg" alt="your image" class="rounded" />
+    <input type='file' onchange="readURL(this);" />
+    <script>
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function (e) {
+                                $('#blah')
+                                    .attr('src', e.target.result)
+                                    .width(150)
+                                    .height(200);
+                            };
+
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+    </script>
+
+    
+    <br />
+    <br />
+    <br />
+    <div class="send-button w3layouts agileits">
+        <form>
+            <a href="/Employee/MemberIndex" class="btn btn-primary">Member</a>
+            <br />
+            <a href="" class="btn btn-primary">Book</a>
+            <br />
+
+
+        </form>
+    </div>
+    <div class="clear"></div>
+
+
+    <div class="clear"></div>
+}
+<form action="#" method="post">
+    <input type="text" Name="Frist Name" placeholder="First Name" required="">
+    <input type="text" Name="Last Name" placeholder="Last Name" required="">
+    <input type="text" Name="Address" placeholder="Address" required="">
+    <input type="text" Name="salary" placeholder="salary" required="">
+    <input type="text" Name="Phone Number" placeholder="Phone Number" required="">
+    <input type="text" Name="Hire Date" placeholder="Hire Date" required="">
+</form>
+@section who
+{
+    <h2>Employee</h2>
+}

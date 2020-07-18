@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MyLibrabry.Models.Users>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMP.cshtml";
+}
+
+<h2>Index</h2>
+
+<a href="/Employee/Create" class="btn btn-primary">Create One</a>
+
+<br />
+<hr />
+<br />
+
+<table class="table table-active table-bordered  table-striped ">
+    <tr>
+        <th> @Html.DisplayNameFor(ww => ww.u_id) </th>
+        <th>@Html.DisplayNameFor(ww => ww.u_fname) </th>
+        <th> @Html.DisplayNameFor(ww => ww.u_lname) </th>
+        <th> @Html.DisplayNameFor(ww => ww.hdate) </th>
+        <th> @Html.DisplayNameFor(ww => ww.salary) </th>
+        <th> @Html.DisplayNameFor(ww => ww.age) </ th >
+        <th> @Html.DisplayNameFor(ww => ww.u_address) </th>
+        <th> @Html.DisplayNameFor(ww => ww.phone) </th>
+        <th>@Html.DisplayNameFor(ww => ww.u_email) </th>
+        <th>@Html.DisplayNameFor(ww => ww.photo) </th>
+
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(ww => item.u_id)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.u_fname)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.u_lname)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.hdate)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.salary)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.u_address)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.u_email)
+            </td>
+            <td>
+
+                <img class="img" src="~/LayoutMP/photo/@item.photo" />
+            </td>
+
+            <td>
+                <pre> @Html.ActionLink("Edit","EditMember", "Employee", new {id=item.u_id  },new {@class="btn btn-success" }) | @Html.ActionLink("Delete","DeleteMember", "Employee", new {id=item.u_id },new {@class="btn btn-danger",onclick="return confirm('Are u Sure!!!')" })</pre>
+            </td>
+        </tr>
+    }
+</table>
+

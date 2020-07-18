@@ -1,0 +1,139 @@
+﻿@model IEnumerable<MyLibrabry.Models.mybook>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutMP.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>mybook</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.b_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.b_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.b_author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.b_publisher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_publisher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no_pages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_pages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avilable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avilable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no_shelf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_shelf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no_copies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_copies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.b_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.b_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arr_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.arr_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

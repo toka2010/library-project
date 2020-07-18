@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MyLibrabry.Models.Book>
+
+@{
+    ViewBag.Title = "BookEmp";
+    Layout = "~/Views/Shared/_LayoutMP.cshtml";
+}
+
+<h2>BookEmp</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.b_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.b_author)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edition)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.no_shelf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.no_copies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.b_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.b_author)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.edition)
+            </td>
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.avilable)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.no_shelf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.no_copies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo)
+            </td>
+            
+
+            <td>
+                @*@Html.ActionLink("Edit", "EditBook", "BasicAdmint", htmlAttributes: new { @class = "btn btn-success" }, routeValues: new { id = item.b_id }) |*@
+                @Html.ActionLink("borrow", "addborrow", "Book", htmlAttributes: new { @class = "btn btn-success" }, routeValues: new { id = item.b_id }) 
+                @*@Html.ActionLink("Delete", "Delete", "Student", htmlAttributes: new { @class = "btn btn-danger" }, routeValues: new { id = item.b_id })*@
+
+            </td>
+        </tr>
+    }
+
+</table>

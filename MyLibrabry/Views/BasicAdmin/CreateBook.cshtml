@@ -1,0 +1,129 @@
+﻿@model MyLibrabry.Models.Book
+@{
+    ViewBag.Title = "CreateBook";
+    Layout = "~/Views/Shared/_LayoutMP.cshtml";
+}
+
+<span data-icon="" class="icon"> Add Admain</span>
+
+@using (Html.BeginForm("CreateBook", "BasicAdmin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.b_title, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.b_title, new { htmlAttributes = new { @class = "form-control" } })
+            @* @Html.TextBoxFor(ww => ww.Id, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.b_title)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.b_author, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.b_author, new { htmlAttributes = new { @class = "form-control" } })
+            @* @Html.TextBoxFor(ww => ww.Id, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.b_author)
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.b_publisher, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.b_publisher, new { htmlAttributes = new { @class = "form-control" } })
+            @* @Html.TextBoxFor(ww => ww.Id, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.b_publisher)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.pdate, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.pdate, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.TextBoxFor(ww => ww.Salary, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.pdate)
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.category, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.category, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.TextBoxFor(ww => ww.Salary, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.category)
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.edition, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.edition, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.TextBoxFor(ww => ww.Age, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.edition)
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.no_pages, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.no_pages, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.TextBoxFor(ww => ww.Location, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.no_pages)
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.no_shelf, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.no_shelf, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.TextBoxFor(ww => ww.Salary, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.no_shelf)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.no_copies, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.no_copies, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.TextBoxFor(ww => ww.Salary, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.no_copies)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.photo, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.photo, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.TextBoxFor(ww => ww.Pwd, new { @class = "form-control" })*@
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.photo)
+        </div>
+    </div>
+    
+
+
+    <input type="submit" value="Create Book" class="btn btn-primary" />
+
+}

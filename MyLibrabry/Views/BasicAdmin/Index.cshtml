@@ -1,0 +1,200 @@
+﻿@model MyLibrabry.Models.Users
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+}
+
+<h2>Index</h2>
+
+@section scripts
+{
+
+
+    <img id="blah" src="~/LayoutProfile/images/Alaa.jpg" alt="your image" class="rounded" />
+    <input type='file' onchange="readURL(this);" />
+    <script>
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function (e) {
+                                $('#blah')
+                                    .attr('src', e.target.result)
+                                    .width(150)
+                                    .height(200);
+                            };
+
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+    </script>
+
+     
+<br />
+<br />
+<br />
+<div class="send-button w3layouts agileits">
+    <form>
+        <a href="/BasicAdmin/AdminIndex" class="btn btn-primary">Admin</a>
+        <br />
+        <a href="/BasicAdmin/EmployeeIndex" class="btn btn-primary">Employee</a>
+        <br />
+        <a href="/BasicAdmin/MemberIndex" class="btn btn-primary">Member</a>
+        <br />
+        <a href="/BasicAdmin/BookB" class="btn btn-primary">Book</a>
+        <br />
+       
+    </form>
+</div>
+<div class="clear"></div>
+        
+
+<div class="clear"></div>
+ }
+@using (Html.BeginForm("Index", "BasicAdmin", FormMethod.Post))
+{
+
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.u_fname, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.u_fname, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.u_fname)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.u_lname, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.u_lname, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.u_lname)
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.hdate, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.hdate, new { htmlAttributes = new { @class = "form-control" } })
+
+            @Html.HiddenFor(ww => ww.hdate)
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.hdate)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.salary, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.salary, new { htmlAttributes = new { @class = "form-control" } })
+
+            @Html.HiddenFor(ww => ww.salary)
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.salary)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.age, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.age, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.age)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.u_address, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.u_address, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.u_address)
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.phone, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.phone, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.phone)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.u_name, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.u_name, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.u_name)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.u_password, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.u_password, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.u_password)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.Confpwd, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.Confpwd, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.Confpwd)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.u_email, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.u_email, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+            @Html.ValidationMessageFor(ww => ww.u_email)
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(ww => ww.photo, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(ww => ww.photo, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="col-sm-10">
+
+        </div>
+    </div>
+
+    @Html.ActionLink("Edit", "EditIndex", "BasicAdmin", htmlAttributes: new { @class = "btn btn-success" }, routeValues: new { id = Model.u_id })
+    <br>
+    <br>
+    @Html.ActionLink("LOG OUT", "Index", "userlogin", htmlAttributes: new { @class = "btn btn-success" }, routeValues: new { id = Model.u_id })
+
+}
+
+@section who
+{
+    <h2>Basic Admin</h2>
+  }

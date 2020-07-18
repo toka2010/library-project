@@ -1,0 +1,84 @@
+﻿@model IEnumerable<MyLibrabry.Models.mybook>
+
+@{
+    ViewBag.Title = "mybook";
+    Layout = "~/Views/Shared/_LayoutMP.cshtml";
+}
+
+<h2>mybook</h2>
+<h2>mybook</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.b_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.b_author)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edition)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.arr_date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.b_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.b_author)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.edition)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.b_description)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.arr_date)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+                @*@Html.ActionLink("Details", "Details", "Book", htmlAttributes: new { @class = "btn btn-danger" }, routeValues: new { id = item.b_id })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+
